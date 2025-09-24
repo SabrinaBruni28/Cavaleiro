@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bf26rguqthypl"]
+
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="1_y3u7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mykxm"]
+bg_color = Color(0.846815, 0.503272, 0.224276, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 4.0
+expand_margin_right = 5.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4lrb"]
+bg_color = Color(0.975889, 0.416824, 0.119211, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 4.0
+expand_margin_right = 5.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yumr"]
+bg_color = Color(0.952941, 0.909804, 0.164706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 5.0
+expand_margin_top = 4.0
+expand_margin_right = 5.0
+expand_margin_bottom = 4.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.326679, 0.326679, 0.326679, 1)
+Button/fonts/font = ExtResource("1_y3u7b")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_mykxm")
+Button/styles/normal = SubResource("StyleBoxFlat_s4lrb")
+Button/styles/pressed = SubResource("StyleBoxFlat_3yumr")

@@ -11,6 +11,5 @@ func add_point():
 func win_test() -> void:
 	if get_tree().get_nodes_in_group("coin").size() <= 1:
 		win_sound.play()
-		print("You win!!")
 		await win_sound.finished
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")

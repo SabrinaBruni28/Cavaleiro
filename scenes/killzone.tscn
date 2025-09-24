@@ -13,6 +13,7 @@ one_shot = true
 
 [node name="DyingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_kl8fp")
+bus = &"Music"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

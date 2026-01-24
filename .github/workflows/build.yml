@@ -146,7 +146,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ github.run_number }}
-          name: Catout v${{ github.run_number }}
+          name: Cavaleiro v${{ github.run_number }}
           files: |
             release/Cavaleiro-Windows.exe
             release/Cavaleiro-Linux.tar.gz

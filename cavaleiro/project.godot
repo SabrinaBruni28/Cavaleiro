@@ -10,14 +10,24 @@ config_version=5
 
 [application]
 
-config/name="Joguinnho"
+config/name="Cavaleiro da Floresta"
 run/main_scene="uid://c8635kaecx0s3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://y1ym31xu1qmg"
 
 [autoload]
 
-Music="*res://scenes/music.tscn"
+AudioManager="*res://scenes/audio_manager.tscn"
+GameManager="*res://scripts/game_manager.gd"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange",
+"res://scenes/": "red",
+"res://scripts/": "yellow",
+"res://themes/": "purple"
+}
 
 [input]
 

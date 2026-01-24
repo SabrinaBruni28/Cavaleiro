@@ -1,27 +1,27 @@
 [gd_scene load_steps=12 format=3 uid="uid://cn1a8dyn6a441"]
 
-[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_jw6e5"]
-[ext_resource type="Script" uid="uid://bvxs3x6fy7yw8" path="res://scripts/game_over_screen.gd" id="1_wa2qn"]
-[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_cyfkl"]
-[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="2_wa2qn"]
-[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="3_cyfkl"]
+[ext_resource type="Script" uid="uid://bvxs3x6fy7yw8" path="res://scripts/screens/game_over_screen.gd" id="1_t6gfk"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_caqlj"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_cswdd"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_57lmi"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_lbpf0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyfkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i0af"]
-atlas = ExtResource("3_cyfkl")
+atlas = ExtResource("5_lbpf0")
 region = Rect2(0, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nh6my"]
-atlas = ExtResource("3_cyfkl")
+atlas = ExtResource("5_lbpf0")
 region = Rect2(32, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4tlw3"]
-atlas = ExtResource("3_cyfkl")
+atlas = ExtResource("5_lbpf0")
 region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ej65t"]
-atlas = ExtResource("3_cyfkl")
+atlas = ExtResource("5_lbpf0")
 region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8i476"]
@@ -51,14 +51,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wa2qn")
+script = ExtResource("1_t6gfk")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 2
 offset_top = 20.0
 offset_right = 1152.0
 offset_bottom = 628.0
-texture = ExtResource("2_cyfkl")
+texture = ExtResource("2_caqlj")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -85,7 +85,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_jw6e5")
+theme_override_fonts/font = ExtResource("3_cswdd")
 theme_override_font_sizes/font_size = 80
 text = "GAME OVER"
 
@@ -96,15 +96,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_cyfkl")
 
 [node name="Again_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_wa2qn")
+theme = ExtResource("4_57lmi")
 theme_override_font_sizes/font_size = 24
 text = "PLAY AGAIN"
-
-[node name="QuitGame_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_wa2qn")
-theme_override_font_sizes/font_size = 24
-text = "QUIT GAME"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(117, 413)
@@ -114,4 +108,3 @@ autoplay = "default"
 frame_progress = 0.945078
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Again_button" to="." method="_on_again_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitGame_button" to="." method="_on_quit_game_button_pressed"]

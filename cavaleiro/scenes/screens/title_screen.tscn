@@ -1,25 +1,25 @@
 [gd_scene load_steps=11 format=3 uid="uid://c8635kaecx0s3"]
 
-[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="1_fgkus"]
-[ext_resource type="Script" uid="uid://b14khs86pejsi" path="res://scripts/title_screen.gd" id="1_mgrm8"]
-[ext_resource type="Texture2D" uid="uid://y1ym31xu1qmg" path="res://assets/sprites/logo.png" id="1_sa3yf"]
-[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_dc4i4"]
-[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="2_s4lrb"]
+[ext_resource type="Script" uid="uid://b14khs86pejsi" path="res://scripts/screens/title_screen.gd" id="1_wb8xf"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_ehvh6"]
+[ext_resource type="Texture2D" uid="uid://y1ym31xu1qmg" path="res://assets/sprites/logo.png" id="3_2neum"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_0virr"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_glmg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sa3yf"]
-atlas = ExtResource("1_fgkus")
+atlas = ExtResource("5_glmg5")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4lrb"]
-atlas = ExtResource("1_fgkus")
+atlas = ExtResource("5_glmg5")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgrm8"]
-atlas = ExtResource("1_fgkus")
+atlas = ExtResource("5_glmg5")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dc4i4"]
-atlas = ExtResource("1_fgkus")
+atlas = ExtResource("5_glmg5")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e54dn"]
@@ -49,13 +49,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mgrm8")
+script = ExtResource("1_wb8xf")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_dc4i4")
+texture = ExtResource("2_ehvh6")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -80,25 +80,19 @@ theme_override_constants/separation = 13
 
 [node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_sa3yf")
+texture = ExtResource("3_2neum")
 
 [node name="Start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_s4lrb")
+theme = ExtResource("4_0virr")
 theme_override_font_sizes/font_size = 24
 text = "START"
 
 [node name="Credits_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_s4lrb")
+theme = ExtResource("4_0virr")
 theme_override_font_sizes/font_size = 24
 text = "CREDITS"
-
-[node name="QuitGame_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_s4lrb")
-theme_override_font_sizes/font_size = 24
-text = "QUIT GAME"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(172, 422)
@@ -109,4 +103,3 @@ frame_progress = 0.197261
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits_button" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitGame_button" to="." method="_on_quit_game_button_pressed"]

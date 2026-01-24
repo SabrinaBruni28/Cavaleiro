@@ -1,43 +1,43 @@
 [gd_scene load_steps=16 format=3 uid="uid://mwt4unjnbd22"]
 
-[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_2l6cc"]
-[ext_resource type="Script" uid="uid://dheb3xoiq074g" path="res://scripts/win_screen.gd" id="1_e41g7"]
-[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_0lrm4"]
-[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="2_e41g7"]
-[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="3_0lrm4"]
+[ext_resource type="Script" uid="uid://dheb3xoiq074g" path="res://scripts/screens/win_screen.gd" id="1_cmosp"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_ey0qu"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_l5ckm"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_5w3vv"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_yphky"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqn3h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lrm4"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6s1kg"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqn3h"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(96, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnnn4"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(128, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doie2"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6ob7"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(192, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8vhx"]
-atlas = ExtResource("3_0lrm4")
+atlas = ExtResource("5_yphky")
 region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnnn4"]
@@ -79,13 +79,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e41g7")
+script = ExtResource("1_cmosp")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("2_0lrm4")
+texture = ExtResource("2_ey0qu")
 expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -112,7 +112,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_2l6cc")
+theme_override_fonts/font = ExtResource("3_l5ckm")
 theme_override_font_sizes/font_size = 80
 text = "YOU WIN!"
 
@@ -123,15 +123,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_bqn3h")
 
 [node name="Next_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_e41g7")
+theme = ExtResource("4_5w3vv")
 theme_override_font_sizes/font_size = 24
 text = "NEXT LEVEL"
-
-[node name="QuitGame_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_e41g7")
-theme_override_font_sizes/font_size = 24
-text = "QUIT GAME"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(128, 422)
@@ -141,4 +135,3 @@ autoplay = "default"
 frame_progress = 0.614842
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Next_button" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitGame_button" to="." method="_on_quit_game_button_pressed"]

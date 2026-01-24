@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfhr5s7ncxtad"]
+
+[ext_resource type="AudioStream" uid="uid://xcbaq1ewk61x" path="res://assets/music/time_for_adventure.mp3" id="1_8qd8g"]
+[ext_resource type="Script" uid="uid://kwr6qymbhh1e" path="res://scripts/audio_manager.gd" id="1_liach"]
+[ext_resource type="AudioStream" uid="uid://bj26smsb87sc0" path="res://assets/sounds/win.mp3" id="3_3asnw"]
+[ext_resource type="AudioStream" uid="uid://c20gxhijuknj8" path="res://assets/sounds/jump.wav" id="4_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://bs83dhw8egqfl" path="res://assets/sounds/coin.wav" id="5_aoitu"]
+[ext_resource type="AudioStream" uid="uid://dw4rtcc5mdjum" path="res://assets/sounds/die.mp3" id="6_njtn3"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_liach")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8qd8g")
+autoplay = true
+bus = &"Music"
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3asnw")
+bus = &"SFX"
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m6ggh")
+bus = &"SFX"
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aoitu")
+bus = &"SFX"
+
+[node name="DyingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_njtn3")
+bus = &"Music"

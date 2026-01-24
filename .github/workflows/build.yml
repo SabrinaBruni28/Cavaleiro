@@ -1,0 +1,153 @@
+name: Godot Multi-Platform Build
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Godot 4.5 Headless
+      - name: Download Godot Headless
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_linux.x86_64.zip -O godot.zip
+          unzip godot.zip -d godot
+          chmod +x godot/Godot_v4.4-stable_linux.x86_64
+
+      # Export Templates
+      - name: Download Export Templates
+        run: |
+          wget https://github.com/godotengine/godot/releases/download/4.4-stable/Godot_v4.4-stable_export_templates.tpz -O templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/4.4.stable
+          unzip -q templates.tpz -d /tmp/templates
+          cp -r /tmp/templates/templates/* ~/.local/share/godot/export_templates/4.4.stable/
+
+      # Pastas
+      - name: Prepare directories
+        run: |
+          mkdir -p build/windows build/linux build/web
+
+      # IMPORTAÇÃO (obrigatória)
+      - name: Import assets
+        working-directory: cavaleiro
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --path . \
+            --import
+
+      # Windows
+      - name: Export Windows
+        working-directory: cavaleiro
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Windows Desktop" ../build/windows/Cavaleiro.exe
+
+      # Linux
+      - name: Export Linux
+        working-directory: cavaleiro
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Linux" ../build/linux/Cavaleiro.x86_64
+
+      # Web
+      - name: Export Web
+        working-directory: cavaleiro
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-release "Web" ../build/web/index.html
+
+      # Upload Windows
+      - name: Upload Windows build
+        uses: actions/upload-artifact@v4
+        with:
+          name: cavaleiro-windows
+          path: |
+            build/windows/Cavaleiro.exe
+
+      # Upload Linux
+      - name: Upload Linux build
+        uses: actions/upload-artifact@v4
+        with:
+          name: cavaleiro-linux
+          path: |
+            build/linux/Cavaleiro.x86_64
+            build/linux/Cavaleiro.pck
+
+      # Upload Web
+      - name: Upload Web build
+        uses: actions/upload-artifact@v4
+        with:
+          name: cavaleiro-web
+          path: build/web
+
+      # Upload Web (GitHub Pages)
+      - name: Upload Web Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy-web:
+    needs: export
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: export
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release
+
+      - name: Prepare files
+        run: |
+          # Windows
+          mv release/cavaleiro-windows/Cavaleiro.exe release/Cavaleiro-Windows.exe
+
+          # Linux (tar.gz preserva permissão)
+          chmod +x release/cavaleiro-linux/Cavaleiro.x86_64
+          tar -czf release/Cavaleiro-Linux.tar.gz -C release/cavaleiro-linux Cavaleiro.x86_64
+
+          # Web
+          cd release/cavaleiro-web
+          zip -r ../Cavaleiro-Web.zip .
+          cd ../..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Catout v${{ github.run_number }}
+          files: |
+            release/Cavaleiro-Windows.exe
+            release/Cavaleiro-Linux.tar.gz
+            release/Cavaleiro-Web.zip

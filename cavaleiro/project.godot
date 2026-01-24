@@ -20,6 +20,11 @@ config/icon="uid://y1ym31xu1qmg"
 AudioManager="*res://scenes/audio_manager.tscn"
 GameManager="*res://scripts/game_manager.gd"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [file_customization]
 
 folder_colors={

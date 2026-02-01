@@ -1,9 +1,18 @@
 extends Node2D
 
-@onready var score_label: Label = $Labels/ScoreLabel
+@onready var final: Label = $Labels/Final
+@onready var objetivo: Label = $Labels/Objetivo
 
 func _ready() -> void:
-	GameManager.score = 0
+	await get_tree().process_frame
 	
-func _process(delta: float) -> void:
-	score_label.text = "You collected " + str(GameManager.score) + " coins!"
+	var total = get_tree().get_nodes_in_group("coin").size()
+	GameManager.reset_level(total)
+	_update_labels()
+
+func _process(_delta: float) -> void:
+	_update_labels()
+
+func _update_labels() -> void:
+	final.text = "Você coletou " + str(GameManager.score) + " moedas!"
+	objetivo.text = "Colete " + str(GameManager.max_score) + " moedas!"

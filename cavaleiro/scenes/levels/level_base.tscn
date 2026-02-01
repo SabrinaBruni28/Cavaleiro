@@ -215,6 +215,7 @@ tile_set = SubResource("TileSet_w06h8")
 
 [node name="Player" parent="." instance=ExtResource("6_morta")]
 position = Vector2(38, 38)
+scale = Vector2(1.2, 1.2)
 
 [node name="Killzone" parent="." instance=ExtResource("7_p7rbk")]
 position = Vector2(0, 243)
@@ -224,7 +225,7 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Labels" type="Node" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="Labels"]
+[node name="Final" type="Label" parent="Labels"]
 offset_left = 92.0
 offset_top = -472.0
 offset_right = 193.0
@@ -232,6 +233,18 @@ offset_bottom = -453.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_l4xu8")
 theme_override_font_sizes/font_size = 8
-text = "You collected X coins."
+text = "Você coletou x moedas!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Objetivo" type="Label" parent="Labels"]
+offset_left = 92.0
+offset_top = -472.0
+offset_right = 193.0
+offset_bottom = -453.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_l4xu8")
+theme_override_font_sizes/font_size = 8
+text = "Colete x moedas!"
 horizontal_alignment = 1
 autowrap_mode = 2

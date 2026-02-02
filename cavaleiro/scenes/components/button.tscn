@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx4xjmh7sxu8f"]
+
+[ext_resource type="Script" uid="uid://dem2ev1excaec" path="res://scripts/components/button.gd" id="1_gpd8i"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_mytah"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(250, 50)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_gpd8i")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(185, 25)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 185.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("2_mytah")
+theme_override_font_sizes/font_size = 24
+text = "Controle"
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

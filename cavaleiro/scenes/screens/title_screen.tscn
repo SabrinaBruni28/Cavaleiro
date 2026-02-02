@@ -82,17 +82,17 @@ theme_override_constants/separation = 13
 layout_mode = 2
 texture = ExtResource("3_2neum")
 
-[node name="Start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Jogar" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_0virr")
 theme_override_font_sizes/font_size = 24
-text = "START"
+text = "Jogar"
 
-[node name="Credits_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Controles" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_0virr")
 theme_override_font_sizes/font_size = 24
-text = "CREDITS"
+text = "Controles"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(172, 422)
@@ -101,5 +101,5 @@ sprite_frames = SubResource("SpriteFrames_e54dn")
 autoplay = "default"
 frame_progress = 0.197261
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=3 uid="uid://smohhnxn4oaj"]
+
+[ext_resource type="Script" uid="uid://rqhnhc085uy5" path="res://scripts/screens/final_screen.gd" id="1_78w0w"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_yyvbq"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_6pagn"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_qqevm"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_auu3p"]
+[ext_resource type="PackedScene" uid="uid://bx4xjmh7sxu8f" path="res://scenes/components/button.tscn" id="5_yyvbq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrm4"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1kg"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqn3h"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnnn4"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doie2"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ob7"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8vhx"]
+atlas = ExtResource("5_auu3p")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnnn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e41g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqn3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnnn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doie2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ob7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8vhx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="ControlesScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78w0w")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_yyvbq")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 228.0
+offset_top = 20.0
+offset_right = 918.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6pagn")
+theme_override_font_sizes/font_size = 80
+text = "Controles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inicial_button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 466.0
+offset_top = 461.0
+offset_right = 695.0
+offset_bottom = 489.0
+theme = ExtResource("4_qqevm")
+theme_override_font_sizes/font_size = 24
+text = "Menu Inicial"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -45.0
+offset_right = 425.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Esquerda" parent="MarginContainer/GridContainer" instance=ExtResource("5_yyvbq")]
+layout_mode = 2
+action_name = "esquerda"
+
+[node name="Direita" parent="MarginContainer/GridContainer" instance=ExtResource("5_yyvbq")]
+layout_mode = 2
+action_name = "direita"
+
+[node name="Pular" parent="MarginContainer/GridContainer" instance=ExtResource("5_yyvbq")]
+layout_mode = 2
+action_name = "pular"
+
+[node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
+position = Vector2(128, 422)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qnnn4")
+autoplay = "default"
+frame_progress = 0.614842
+
+[connection signal="pressed" from="Inicial_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Inicial_button" to="." method="_on_inicial_button_pressed"]

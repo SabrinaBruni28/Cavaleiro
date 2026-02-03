@@ -5,3 +5,4 @@ extends Node
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var pickup_sound: AudioStreamPlayer = $PickupSound
 @onready var dying_sound: AudioStreamPlayer = $DyingSound
+@onready var morte_inimigo_sound: AudioStreamPlayer = $MorteInimigoSound

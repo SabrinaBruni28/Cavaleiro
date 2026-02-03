@@ -1,20 +1,24 @@
 extends Node
 
 var score = 0
-var max_score = 0
-var level = 2
+var moedas = 0
+var max = 0
+var level = 1
 var max_level = 2
 
 func inicia_level():
 	get_tree().change_scene_to_file("res://scenes/levels/level_" + str(level) + ".tscn")
 
-func add_point():
-	score += 1
-	if score == max_score: win()
+func add_moeda():
+	moedas += 1
+
+func add_point(pontos: int = 1):
+	score += pontos
 
 func reset_level(total):
 	score = 0
-	max_score = total
+	moedas = 0
+	max = total
 
 func win() -> void:
 	AudioManager.win_sound.play()

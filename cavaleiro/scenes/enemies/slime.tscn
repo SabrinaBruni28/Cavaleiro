@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jmd6ehdx4hig"]
+[gd_scene load_steps=13 format=3 uid="uid://jmd6ehdx4hig"]
 
 [ext_resource type="Script" uid="uid://dicigg6x3trqy" path="res://scripts/enemies/slime.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://br3n1ps8hkr5w" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
@@ -20,6 +20,14 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_p2gj0")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhme6"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uxu4"]
+atlas = ExtResource("1_p2gj0")
+region = Rect2(48, 48, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bhme6"]
 animations = [{
 "frames": [{
@@ -38,13 +46,24 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhme6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxu4")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
-size = Vector2(12, 15.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4h4y0"]
-size = Vector2(10, 3)
+size = Vector2(8, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b58ev"]
+size = Vector2(12, 2)
 
 [node name="Slime" type="CharacterBody2D"]
 collision_layer = 4
@@ -61,9 +80,8 @@ flip_h = true
 [node name="Killzone" parent="." instance=ExtResource("2_n6pvg")]
 position = Vector2(-2, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(2, -2)
-shape = SubResource("RectangleShape2D_0l8pv")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+polygon = PackedVector2Array(-7, 0, -7, 6, 11, 6, 11, 0, 10, 0, 10, -1, 9, -1, 9, -7, 2, -6, -5, -7, -5, -1, -6, -1, -6, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, 3)
@@ -74,5 +92,15 @@ position = Vector2(0, 2)
 target_position = Vector2(-8, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_4h4y0")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(5, 3)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, -9)
+shape = SubResource("RectangleShape2D_b58ev")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,7 +2,7 @@ extends Node
 
 var score = 0
 var max_score = 0
-var level = 1
+var level = 2
 var max_level = 2
 
 func inicia_level():

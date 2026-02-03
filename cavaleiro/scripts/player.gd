@@ -1,52 +1,122 @@
 extends CharacterBody2D
 
+enum PlayerState { GROUND, AIR, WATER, DIE }
+var state: PlayerState = PlayerState.AIR
+
 var died = false
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+var nadar = false
+var agua_count = 0
+
+# Valores normais
+const SPEED_NORMAL = 130.0
+const JUMP_NORMAL = -300.0
+const GRAVITY_NORMAL = 1.0
+
+# Valores na água
+const SPEED_AGUA = 30.0
+const JUMP_AGUA = -180.0
+const GRAVITY_AGUA = 0.3
+
+var speed = SPEED_NORMAL
+var jump_velocity = JUMP_NORMAL
+var gravity_scale = GRAVITY_NORMAL
+var direction
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+func estados():
+	if died:
+		state = PlayerState.DIE
+	elif is_on_floor():
+		state = PlayerState.GROUND
+	elif nadar:
+		state = PlayerState.WATER
+	else:
+		state = PlayerState.AIR
 
-	# Handle jump.
-	if Input.is_action_just_pressed("pular") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		AudioManager.jump_sound.play()   
+func pulo():
+	if Input.is_action_just_pressed("pular"):
+		if state == PlayerState.WATER:
+			velocity.y = jump_velocity
+			AudioManager.jump_sound.play()
+		elif state == PlayerState.GROUND:
+			velocity.y = jump_velocity
+			AudioManager.jump_sound.play()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	# Get the input direction -1, 0, 1
-	var direction := Input.get_axis("esquerda", "direita")
-	
-	# Flip the Sprite
+func gravidade(delta):
+	match state:
+		PlayerState.WATER:
+			velocity.y += get_gravity().y * gravity_scale * delta
+			velocity.y = clamp(velocity.y, -400.0, 80.0)
+
+		PlayerState.AIR:
+			velocity += get_gravity() * gravity_scale * delta
+
+		PlayerState.GROUND:
+			pass
+
+func movimento():
+	direction = Input.get_axis("esquerda", "direita")
+
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+
+func animacao():
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
 
-	# Play animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
-	elif died:
-		animated_sprite.play("die")
-	else:
-		animated_sprite.play("jump")
+	match state:
+		PlayerState.DIE:
+			play_anim("die")
 
-	# Apply movement
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		PlayerState.WATER:
+			play_anim("nadar")
 
+		PlayerState.GROUND:
+			if direction == 0:
+				play_anim("idle")
+			else:
+				play_anim("run")
+
+		PlayerState.AIR:
+			play_anim("jump")
+
+func _physics_process(delta: float) -> void:
+	estados()
+	pulo()
+	gravidade(delta)
+	movimento()
+	animacao()
 	move_and_slide()
-	
+
 func die():
 	died = true
 	AudioManager.dying_sound.play()
 	collision.queue_free()
+
+func play_anim(name: String) -> void:
+	if animated_sprite.animation != name:
+		animated_sprite.play(name)
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("agua"):
+		agua_count += 1
+		nadar = true
+		velocity.y *= 0.5
+		speed = SPEED_AGUA
+		jump_velocity = JUMP_AGUA
+		gravity_scale = GRAVITY_AGUA
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("agua"):
+		agua_count -= 1
+		if agua_count <= 0:
+			nadar = false
+			speed = SPEED_NORMAL
+			jump_velocity = JUMP_NORMAL
+			gravity_scale = GRAVITY_NORMAL

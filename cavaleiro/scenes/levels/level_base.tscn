@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=21 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
 [ext_resource type="PackedScene" uid="uid://d3coteb2856id" path="res://scenes/components/coin.tscn" id="3_w06h8"]
 [ext_resource type="PackedScene" uid="uid://c0g6wl0qubjcb" path="res://scenes/plataformas/plataform_verde.tscn" id="4_dq8h5"]
+[ext_resource type="PackedScene" uid="uid://tjj0f4md27df" path="res://scenes/components/agua.tscn" id="4_l4xu8"]
+[ext_resource type="PackedScene" uid="uid://u6ie6554ge0v" path="res://scenes/components/killzone_especifica.tscn" id="5_3iy5o"]
 [ext_resource type="PackedScene" uid="uid://jmd6ehdx4hig" path="res://scenes/enemies/slime.tscn" id="5_imdmy"]
 [ext_resource type="PackedScene" uid="uid://g4j1ptdsdmt2" path="res://scenes/enemies/slime_roxo.tscn" id="5_ynct0"]
 [ext_resource type="PackedScene" uid="uid://dmp25ccbvmgbo" path="res://scenes/player.tscn" id="6_morta"]
@@ -194,6 +196,8 @@ scenes/6/scene = ExtResource("8_morta")
 scenes/7/scene = ExtResource("9_p7rbk")
 scenes/8/scene = ExtResource("10_morta")
 scenes/9/scene = ExtResource("11_p7rbk")
+scenes/10/scene = ExtResource("4_l4xu8")
+scenes/11/scene = ExtResource("5_3iy5o")
 
 [sub_resource type="TileSet" id="TileSet_w06h8"]
 physics_layer_0/collision_layer = 1
@@ -214,6 +218,10 @@ use_parent_material = true
 tile_set = SubResource("TileSet_w06h8")
 
 [node name="Mid" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_set = SubResource("TileSet_w06h8")
+
+[node name="Agua" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_set = SubResource("TileSet_w06h8")
 

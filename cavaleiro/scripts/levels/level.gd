@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var final: Label = $Labels/Final
 @onready var objetivo: Label = $Labels/Objetivo
+@onready var moedas: Label = $Player/Camera2D/GridContainer/Moedas
+@onready var pontos: Label = $Player/Camera2D/GridContainer/Pontos
 var ganhou = false
 
 func _ready() -> void:
@@ -19,4 +21,6 @@ func _process(_delta: float) -> void:
 
 func _update_labels() -> void:
 	final.text = "Você coletou " + str(GameManager.moedas) + " moedas!"
+	moedas.text = str(GameManager.moedas)
+	pontos.text = str(GameManager.score)
 	

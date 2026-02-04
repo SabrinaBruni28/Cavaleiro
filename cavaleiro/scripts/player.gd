@@ -37,7 +37,8 @@ func estados():
 
 func pulo():
 	if Input.is_action_just_pressed("pular"):
-		pular()
+		if state == PlayerState.WATER or state == PlayerState.GROUND:
+			pular()
 
 func pular():
 	velocity.y = jump_velocity

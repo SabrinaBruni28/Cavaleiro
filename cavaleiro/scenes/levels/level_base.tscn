@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=23 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://s2qqxcyf3cuq" path="res://scenes/plataformas/plataform_marrom_pequena.tscn" id="9_p7rbk"]
 [ext_resource type="PackedScene" uid="uid://p0kp2n8xa0oj" path="res://scenes/caixas/caixa_marrom.tscn" id="10_morta"]
 [ext_resource type="PackedScene" uid="uid://c1obh82wet812" path="res://scenes/caixas/caixa_branca.tscn" id="11_p7rbk"]
+[ext_resource type="Texture2D" uid="uid://dh2nf4jrpqxsl" path="res://assets/sprites/coin.png" id="16_1vve2"]
+[ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="16_x2afm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40ga3"]
 texture = ExtResource("2_ynct0")
@@ -236,6 +238,48 @@ tile_set = SubResource("TileSet_w06h8")
 [node name="Player" parent="." instance=ExtResource("6_morta")]
 position = Vector2(38, 38)
 scale = Vector2(1.2, 1.2)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -27)
+zoom = Vector2(3.5, 3.5)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="GridContainer" type="GridContainer" parent="Player/Camera2D"]
+offset_left = -98.3333
+offset_top = -62.1667
+offset_right = -48.3333
+offset_bottom = -42.1667
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 3
+
+[node name="Pontos" type="Label" parent="Player/Camera2D/GridContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_x2afm")
+theme_override_font_sizes/font_size = 8
+text = "50"
+vertical_alignment = 1
+
+[node name="Moedas" type="Label" parent="Player/Camera2D/GridContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_x2afm")
+theme_override_font_sizes/font_size = 8
+text = "50"
+vertical_alignment = 1
+
+[node name="TextureRect" type="Sprite2D" parent="Player/Camera2D/GridContainer/Moedas"]
+position = Vector2(-5.83332, 9.16668)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("16_1vve2")
+region_enabled = true
+region_rect = Rect2(1, 1, 14, 14)
 
 [node name="Killzone" parent="." instance=ExtResource("7_p7rbk")]
 position = Vector2(0, 243)

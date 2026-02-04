@@ -9,6 +9,7 @@ var died = false
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var killzone: Area2D = $Killzone
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	# Gravidade
@@ -35,12 +36,13 @@ func die():
 	killzone.monitoring = false
 	killzone.died = true
 
+	animation.play("pontos")
+	animated_sprite.play("die") 
+	await get_tree().create_timer(0.15).timeout
 	# desativa colisões IMEDIATAMENTE
 	set_collision_layer(0)
 	set_collision_mask(0)
-
-	animated_sprite.play("die")
-	GameManager.add_point(10)
+	GameManager.add_point(200)
 	AudioManager.morte_inimigo_sound.play()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

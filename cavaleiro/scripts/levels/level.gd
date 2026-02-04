@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var final: Label = $Labels/Final
 @onready var objetivo: Label = $Labels/Objetivo
+var ganhou = false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -12,8 +13,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_update_labels()
-	if GameManager.moedas == GameManager.max: GameManager.win()
+	if GameManager.moedas == GameManager.max and not ganhou: 
+		GameManager.win()
+		ganhou = true
 
 func _update_labels() -> void:
-	final.text = "Você coletou " + str(GameManager.score) + " moedas!"
+	final.text = "Você coletou " + str(GameManager.moedas) + " moedas!"
 	

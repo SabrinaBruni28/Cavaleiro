@@ -11,6 +11,7 @@ func inicia_level():
 
 func add_moeda():
 	moedas += 1
+	print("moeda:", moedas)
 
 func add_point(pontos: int = 1):
 	score += pontos

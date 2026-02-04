@@ -153,5 +153,5 @@ sprite_frames = SubResource("SpriteFrames_qnnn4")
 autoplay = "default"
 frame_progress = 0.614842
 
-[connection signal="pressed" from="Inicial_button" to="." method="_on_inicial_button_pressed"]
 [connection signal="pressed" from="Inicial_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Inicial_button" to="." method="_on_inicial_button_pressed"]

@@ -37,12 +37,11 @@ func estados():
 
 func pulo():
 	if Input.is_action_just_pressed("pular"):
-		if state == PlayerState.WATER:
-			velocity.y = jump_velocity
-			AudioManager.jump_sound.play()
-		elif state == PlayerState.GROUND:
-			velocity.y = jump_velocity
-			AudioManager.jump_sound.play()
+		pular()
+
+func pular():
+	velocity.y = jump_velocity
+	AudioManager.jump_sound.play()
 
 func gravidade(delta):
 	match state:

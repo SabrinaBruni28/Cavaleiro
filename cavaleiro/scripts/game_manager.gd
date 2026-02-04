@@ -3,7 +3,7 @@ extends Node
 var score = 0
 var moedas = 0
 var max = 0
-var level = 1
+var level = 2
 var max_level = 2
 
 func inicia_level():
@@ -11,7 +11,6 @@ func inicia_level():
 
 func add_moeda():
 	moedas += 1
-	print("moeda:", moedas)
 
 func add_point(pontos: int = 1):
 	score += pontos

@@ -31,13 +31,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
-	if died: return
 	died = true
+	killzone.monitoring = false
+	killzone.died = true
+
+	# desativa colisões IMEDIATAMENTE
+	set_collision_layer(0)
+	set_collision_mask(0)
+
 	animated_sprite.play("die")
 	GameManager.add_point(10)
 	AudioManager.morte_inimigo_sound.play()
-	collision.queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	killzone.queue_free()
+	if died: return
+	body.pular()
 	die()

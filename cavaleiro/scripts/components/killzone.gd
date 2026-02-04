@@ -1,8 +1,10 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
+var died = false
 
 func _on_body_entered(body: Node2D) -> void:
+	if died: return
 	Engine.time_scale = 0.5
 	body.die()
 	timer.start()

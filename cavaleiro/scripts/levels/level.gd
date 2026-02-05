@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var final: Label = $Labels/Final
 @onready var objetivo: Label = $Labels/Objetivo
-@onready var moedas: Label = $Player/Camera2D/GridContainer/Moedas
-@onready var pontos: Label = $Player/Camera2D/GridContainer/Pontos
-@onready var level: Label = $Player/Camera2D/GridContainer/Level
+@onready var moedas: Label = $Player/GridContainer/Moedas
+@onready var pontos: Label = $Player/GridContainer/Pontos
+@onready var level: Label = $Player/GridContainer/Level
 var ganhou = false
 
 func _ready() -> void:

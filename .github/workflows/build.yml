@@ -71,6 +71,14 @@ jobs:
           ../godot/Godot_v4.4-stable_linux.x86_64 \
             --headless \
             --export-release "Web" ../build/web/index.html
+      
+       # ANDROID (DEBUG – SEM KEYSTORE)
+      - name: Export Android Debug
+        working-directory: cavaleiro
+        run: |
+          ../godot/Godot_v4.4-stable_linux.x86_64 \
+            --headless \
+            --export-debug "Android" ../build/android/Cavaleiro-debug.apk
 
       # Upload Windows
       - name: Upload Windows build
@@ -95,6 +103,14 @@ jobs:
         with:
           name: cavaleiro-web
           path: build/web
+  
+      # Upload Android Debug
+      - name: Upload Android Debug build
+        uses: actions/upload-artifact@v4
+        with:
+          name: cavaleiro-android-debug
+          path: build/android/Cavaleiro-debug.apk
+
 
       # Upload Web (GitHub Pages)
       - name: Upload Web Pages Artifact
@@ -141,6 +157,10 @@ jobs:
           cd release/cavaleiro-web
           zip -r ../Cavaleiro-Web.zip .
           cd ../..
+          
+          # Android (APK Debug)
+          mv release/cavaleiro-android-debug/Cavaleiro-debug.apk \
+             release/Cavaleiro-Android-Debug.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -151,3 +171,5 @@ jobs:
             release/Cavaleiro-Windows.exe
             release/Cavaleiro-Linux.tar.gz
             release/Cavaleiro-Web.zip
+            release/Cavaleiro-Android-Debug.apk
+           

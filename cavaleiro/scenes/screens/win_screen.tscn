@@ -118,16 +118,6 @@ text = "Vitória!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pontos" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_l5ckm")
-theme_override_font_sizes/font_size = 32
-text = "Pontos"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60

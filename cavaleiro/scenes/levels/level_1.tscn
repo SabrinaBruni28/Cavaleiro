@@ -16,6 +16,9 @@ tile_map_data = PackedByteArray("AAAJAAoAAQAAAAAAAQAKAAkAAQAAAAAAAQALAAgAAQAAAAA
 [node name="Player" parent="." index="1"]
 position = Vector2(-30, 89)
 
+[node name="TextureRect" parent="Player/Camera2D/GridContainer/Moedas" index="0"]
+position = Vector2(-5.83332, 9.16668)
+
 [node name="Killzone" parent="." index="2"]
 position = Vector2(0, 642)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=26 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
@@ -7,10 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://tjj0f4md27df" path="res://scenes/components/agua.tscn" id="4_l4xu8"]
 [ext_resource type="PackedScene" uid="uid://u6ie6554ge0v" path="res://scenes/components/killzone_especifica.tscn" id="5_3iy5o"]
 [ext_resource type="PackedScene" uid="uid://jmd6ehdx4hig" path="res://scenes/enemies/slime.tscn" id="5_imdmy"]
-[ext_resource type="PackedScene" uid="uid://g4j1ptdsdmt2" path="res://scenes/enemies/slime_roxo.tscn" id="5_ynct0"]
+[ext_resource type="PackedScene" uid="uid://va7y3kkh1ofp" path="res://scenes/enemies/slime_roxo.tscn" id="5_ynct0"]
+[ext_resource type="PackedScene" uid="uid://bjd2mkpwg3pc" path="res://scenes/plataformas/plataform_amarela.tscn" id="6_bbft6"]
 [ext_resource type="PackedScene" uid="uid://dmp25ccbvmgbo" path="res://scenes/player.tscn" id="6_morta"]
 [ext_resource type="PackedScene" uid="uid://c25fgt3iak3c2" path="res://scenes/plataformas/plataform_verde_pequena.tscn" id="7_imdmy"]
+[ext_resource type="PackedScene" uid="uid://cqeqe8w81vacu" path="res://scenes/plataformas/plataform_amarela_pequena.tscn" id="7_ioey5"]
 [ext_resource type="PackedScene" uid="uid://cbn0yft08lqek" path="res://scenes/components/killzone.tscn" id="7_p7rbk"]
+[ext_resource type="PackedScene" uid="uid://dj8g1qxa2j5l5" path="res://scenes/caixas/caixa_vermelha.tscn" id="8_ioey5"]
 [ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="8_l4xu8"]
 [ext_resource type="PackedScene" uid="uid://bmie0107hms02" path="res://scenes/plataformas/plataform_marrom.tscn" id="8_morta"]
 [ext_resource type="PackedScene" uid="uid://s2qqxcyf3cuq" path="res://scenes/plataformas/plataform_marrom_pequena.tscn" id="9_p7rbk"]
@@ -191,7 +194,6 @@ texture = ExtResource("2_ynct0")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ynct0"]
 scenes/1/scene = ExtResource("3_w06h8")
 scenes/2/scene = ExtResource("4_dq8h5")
-scenes/3/scene = ExtResource("5_ynct0")
 scenes/4/scene = ExtResource("5_imdmy")
 scenes/5/scene = ExtResource("7_imdmy")
 scenes/6/scene = ExtResource("8_morta")
@@ -200,6 +202,10 @@ scenes/8/scene = ExtResource("10_morta")
 scenes/9/scene = ExtResource("11_p7rbk")
 scenes/10/scene = ExtResource("4_l4xu8")
 scenes/11/scene = ExtResource("5_3iy5o")
+scenes/12/scene = ExtResource("6_bbft6")
+scenes/13/scene = ExtResource("7_ioey5")
+scenes/14/scene = ExtResource("8_ioey5")
+scenes/15/scene = ExtResource("5_ynct0")
 
 [sub_resource type="TileSet" id="TileSet_w06h8"]
 physics_layer_0/collision_layer = 1
@@ -223,7 +229,7 @@ tile_set = SubResource("TileSet_w06h8")
 use_parent_material = true
 tile_set = SubResource("TileSet_w06h8")
 
-[node name="Agua" type="TileMapLayer" parent="TileMap"]
+[node name="Area" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_set = SubResource("TileSet_w06h8")
 
@@ -255,6 +261,15 @@ size_flags_vertical = 0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 3
+
+[node name="Level" type="Label" parent="Player/Camera2D/GridContainer"]
+custom_minimum_size = Vector2(80, 20)
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_x2afm")
+theme_override_font_sizes/font_size = 8
+text = "Level"
+vertical_alignment = 1
 
 [node name="Pontos" type="Label" parent="Player/Camera2D/GridContainer"]
 custom_minimum_size = Vector2(50, 20)

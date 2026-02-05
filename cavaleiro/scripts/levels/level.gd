@@ -4,6 +4,7 @@ extends Node2D
 @onready var objetivo: Label = $Labels/Objetivo
 @onready var moedas: Label = $Player/Camera2D/GridContainer/Moedas
 @onready var pontos: Label = $Player/Camera2D/GridContainer/Pontos
+@onready var level: Label = $Player/Camera2D/GridContainer/Level
 var ganhou = false
 
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _ready() -> void:
 	var total = get_tree().get_nodes_in_group("coin").size()
 	GameManager.reset_level(total)
 	objetivo.text = "Colete " + str(GameManager.max) + " moedas!"
+	level.text = "Nível " + str(GameManager.level)
 
 func _process(_delta: float) -> void:
 	_update_labels()

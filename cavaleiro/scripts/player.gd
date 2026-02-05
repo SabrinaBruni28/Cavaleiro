@@ -53,8 +53,8 @@ func gravidade(delta):
 		PlayerState.AIR:
 			velocity += get_gravity() * gravity_scale * delta
 
-		PlayerState.GROUND:
-			pass
+		PlayerState.DIE:
+			velocity = Vector2.ZERO
 
 func movimento():
 	direction = Input.get_axis("esquerda", "direita")
@@ -96,8 +96,8 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	died = true
-	AudioManager.dying_sound.play()
 	collision.queue_free()
+	AudioManager.dying_sound.play()
 
 func play_anim(name: String) -> void:
 	if animated_sprite.animation != name:

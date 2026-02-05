@@ -5,23 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://cbn0yft08lqek" path="res://scenes/components/killzone.tscn" id="2_n6pvg"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="4_b58ev"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4h4y0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b58ev"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b58ev"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ankfk"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ankfk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e12yk"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(48, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e12yk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhme6"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(72, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhme6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhx0m"]
 atlas = ExtResource("1_p2gj0")
 region = Rect2(24, 48, 24, 24)
 
@@ -29,12 +29,9 @@ region = Rect2(24, 48, 24, 24)
 atlas = ExtResource("1_p2gj0")
 region = Rect2(48, 48, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bhme6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhx0m"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4h4y0")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b58ev")
 }, {
@@ -43,6 +40,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e12yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhme6")
 }],
 "loop": true,
 "name": &"default",
@@ -50,7 +50,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bhme6")
+"texture": SubResource("AtlasTexture_uhx0m")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7uxu4")
@@ -135,7 +135,7 @@ script = ExtResource("1_n6pvg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 scale = Vector2(1.3, 1.3)
-sprite_frames = SubResource("SpriteFrames_bhme6")
+sprite_frames = SubResource("SpriteFrames_uhx0m")
 autoplay = "default"
 flip_h = true
 
@@ -173,9 +173,8 @@ libraries = {
 [node name="Pontos" type="Label" parent="."]
 visible = false
 offset_left = -5.0
-offset_top = -25.0
 offset_right = 16.0
-offset_bottom = -17.0
+offset_bottom = 8.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_b58ev")
 theme_override_font_sizes/font_size = 8

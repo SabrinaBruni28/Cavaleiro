@@ -19,6 +19,7 @@ config/icon="uid://y1ym31xu1qmg"
 
 AudioManager="*res://scenes/audio_manager.tscn"
 GameManager="*res://scripts/game_manager.gd"
+SaveManager="*res://scripts/save_manager.gd"
 
 [display]
 

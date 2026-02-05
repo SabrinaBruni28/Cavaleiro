@@ -4,6 +4,7 @@
 size = Vector2(17, 15)
 
 [node name="Agua" type="Area2D" groups=["agua"]]
+collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

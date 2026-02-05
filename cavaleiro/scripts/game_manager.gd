@@ -1,10 +1,13 @@
 extends Node
 
-var score = 0
-var moedas = 0
-var max = 0
-var level = 1
-var max_level = 2
+var score: int = 0
+var moedas: int = 0
+var max: int = 0
+var level: int = 1
+var max_level: int = 3
+
+func _ready() -> void:
+	SaveManager.load_game()
 
 func inicia_level():
 	get_tree().change_scene_to_file("res://scenes/levels/level_" + str(level) + ".tscn")
@@ -29,3 +32,4 @@ func win() -> void:
 	else: 
 		level = 1
 		get_tree().change_scene_to_file("res://scenes/screens/final_screen.tscn")
+	SaveManager.save_game()

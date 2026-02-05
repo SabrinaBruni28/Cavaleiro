@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cavaleiro da Floresta"
+config/name="Cavaleiro-da-Floresta"
 run/main_scene="uid://c8635kaecx0s3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://y1ym31xu1qmg"

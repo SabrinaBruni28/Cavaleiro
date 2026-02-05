@@ -264,6 +264,11 @@ collision_mask = 5
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_g2els")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -27)
+zoom = Vector2(3.5, 3.5)
+limit_smoothed = true
+
 [node name="Pular" type="Button" parent="."]
 offset_left = -90.0
 offset_top = 9.0
@@ -284,11 +289,6 @@ offset_top = 10.0
 offset_right = 96.0
 offset_bottom = 41.0
 text = "->"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -27)
-zoom = Vector2(3.5, 3.5)
-limit_smoothed = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

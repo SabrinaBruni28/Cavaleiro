@@ -4,7 +4,7 @@ const SAVE_PATH := "user://nivel.save"
 
 func save_game() -> void:
 	var data := {
-		"nivel_atual": GameManager.level,
+		"nivel_atual": GameManager.level_disponível,
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -36,10 +36,10 @@ func load_game() -> void:
 	var data: Dictionary = json
 
 	# Restaura os dados
-	GameManager.level = data.get("nivel_atual", 1)
+	GameManager.level_disponível = data.get("nivel_atual", 1)
 
 	print("✅ Save carregado com sucesso!")
-	print("Level: ", GameManager.level)
+	print("Level: ", GameManager.level_disponível)
 
 func delete_save() -> void:
 	reset_progresso()

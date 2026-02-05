@@ -127,7 +127,13 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_bqn3h")
 layout_mode = 2
 theme = ExtResource("4_5w3vv")
 theme_override_font_sizes/font_size = 24
-text = "NEXT LEVEL"
+text = "Próximo Nível"
+
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_5w3vv")
+theme_override_font_sizes/font_size = 24
+text = "Menu"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(128, 422)
@@ -137,3 +143,4 @@ autoplay = "default"
 frame_progress = 0.614842
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Next_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

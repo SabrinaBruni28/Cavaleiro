@@ -98,7 +98,13 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_cyfkl")
 layout_mode = 2
 theme = ExtResource("4_57lmi")
 theme_override_font_sizes/font_size = 24
-text = "PLAY AGAIN"
+text = "Tentar Novamente"
+
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_57lmi")
+theme_override_font_sizes/font_size = 24
+text = "Menu"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(117, 413)
@@ -108,3 +114,4 @@ autoplay = "default"
 frame_progress = 0.945078
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Again_button" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

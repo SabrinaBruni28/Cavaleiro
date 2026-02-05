@@ -5,8 +5,11 @@ var moedas: int = 0
 var max: int = 0
 var level: int = 1
 var max_level: int = 3
+var level_disponível: int = 1
+var mobile: bool
 
 func _ready() -> void:
+	mobile = OS.has_feature("mobile")
 	SaveManager.load_game()
 
 func inicia_level():
@@ -27,9 +30,9 @@ func win() -> void:
 	AudioManager.win_sound.play()
 	await AudioManager.win_sound.finished
 	if level < max_level: 
-		level += 1
 		get_tree().change_scene_to_file("res://scenes/screens/win_screen.tscn")
-	else: 
-		level = 1
+	else:
 		get_tree().change_scene_to_file("res://scenes/screens/final_screen.tscn")
+	if level == level_disponível:
+		level_disponível += 1
 	SaveManager.save_game()

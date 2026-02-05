@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var final: Label = $Labels/Final
 @onready var objetivo: Label = $Labels/Objetivo
-@onready var moedas: Label = $Player/GridContainer/Moedas
-@onready var pontos: Label = $Player/GridContainer/Pontos
-@onready var level: Label = $Player/GridContainer/Level
+@onready var moedas: Label = $Player/HUD/Moedas
+@onready var pontos: Label = $Player/HUD/Pontos
+@onready var level: Label = $Player/HUD/Level
 var ganhou = false
 
 func _ready() -> void:
@@ -14,6 +14,10 @@ func _ready() -> void:
 	GameManager.reset_level(total)
 	objetivo.text = "Colete " + str(GameManager.max) + " moedas!"
 	level.text = "Nível " + str(GameManager.level)
+
+	$Player/Controles/GridContainer/Esquerda.visible = GameManager.mobile
+	$Player/Controles/GridContainer/Direita.visible = GameManager.mobile
+	$Player/Controles/Pular.visible = GameManager.mobile
 
 func _process(_delta: float) -> void:
 	_update_labels()
@@ -25,4 +29,6 @@ func _update_labels() -> void:
 	final.text = "Você coletou " + str(GameManager.moedas) + " moedas!"
 	moedas.text = str(GameManager.moedas)
 	pontos.text = str(GameManager.score)
-	
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/screens/title_screen.tscn")

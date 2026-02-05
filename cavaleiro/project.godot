@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cavaleiro-da-Floresta"
+config/name="Cavaleiro da Floresta"
 run/main_scene="uid://c8635kaecx0s3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://y1ym31xu1qmg"
@@ -56,6 +56,10 @@ direita={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

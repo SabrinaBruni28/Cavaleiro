@@ -25,13 +25,6 @@ var direction
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
-func _ready() -> void:
-	var is_mobile = OS.has_feature("mobile")
-
-	$Esquerda.visible = is_mobile
-	$Direita.visible = is_mobile
-	$Pular.visible = is_mobile
-
 func estados():
 	if died:
 		state = PlayerState.DIE
@@ -127,21 +120,3 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 			speed = SPEED_NORMAL
 			jump_velocity = JUMP_NORMAL
 			gravity_scale = GRAVITY_NORMAL
-
-func _on_esquerda_button_down():
-	Input.action_press("esquerda")
-
-func _on_esquerda_button_up():
-	Input.action_release("esquerda")
-
-func _on_direita_button_down():
-	Input.action_press("direita")
-
-func _on_direita_button_up():
-	Input.action_release("direita")
-
-func _on_pular_button_down():
-	Input.action_press("pular")
-
-func _on_pular_button_up():
-	Input.action_release("pular")

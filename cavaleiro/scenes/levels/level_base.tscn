@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=33 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://c1obh82wet812" path="res://scenes/caixas/caixa_branca.tscn" id="11_p7rbk"]
 [ext_resource type="Texture2D" uid="uid://dh2nf4jrpqxsl" path="res://assets/sprites/coin.png" id="16_1vve2"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="16_x2afm"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="20_4vntt"]
+[ext_resource type="Texture2D" uid="uid://bupjxfeymiqwg" path="res://assets/sprites/botao_cima.png" id="20_rb8uy"]
+[ext_resource type="Texture2D" uid="uid://dk3stx51s4dkx" path="res://assets/sprites/botao_esquerda.png" id="21_7wjjj"]
+[ext_resource type="Texture2D" uid="uid://djia1grds7joq" path="res://assets/sprites/botao_direita.png" id="22_jqu2d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40ga3"]
 texture = ExtResource("2_ynct0")
@@ -212,6 +216,15 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_40ga3")
 sources/1 = SubResource("TileSetScenesCollectionSource_ynct0")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rb8uy"]
+radius = 358.02
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wjjj"]
+radius = 351.33
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqu2d"]
+radius = 351.33
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
 [node name="LevelBase" type="Node2D"]
@@ -242,10 +255,10 @@ use_parent_material = true
 tile_set = SubResource("TileSet_w06h8")
 
 [node name="Player" parent="." instance=ExtResource("6_morta")]
-position = Vector2(38, 38)
+position = Vector2(25, 38)
 scale = Vector2(1.2, 1.2)
 
-[node name="GridContainer" type="GridContainer" parent="Player"]
+[node name="HUD" type="GridContainer" parent="Player"]
 offset_left = -98.3333
 offset_top = -89.1667
 offset_right = 91.6667
@@ -256,7 +269,7 @@ theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 3
 
-[node name="Level" type="Label" parent="Player/GridContainer"]
+[node name="Level" type="Label" parent="Player/HUD"]
 custom_minimum_size = Vector2(80, 20)
 layout_direction = 2
 layout_mode = 2
@@ -265,7 +278,7 @@ theme_override_font_sizes/font_size = 8
 text = "Level"
 vertical_alignment = 1
 
-[node name="Pontos" type="Label" parent="Player/GridContainer"]
+[node name="Pontos" type="Label" parent="Player/HUD"]
 custom_minimum_size = Vector2(50, 20)
 layout_direction = 2
 layout_mode = 2
@@ -274,7 +287,7 @@ theme_override_font_sizes/font_size = 8
 text = "50"
 vertical_alignment = 1
 
-[node name="Moedas" type="Label" parent="Player/GridContainer"]
+[node name="Moedas" type="Label" parent="Player/HUD"]
 custom_minimum_size = Vector2(50, 20)
 layout_direction = 2
 layout_mode = 2
@@ -283,12 +296,65 @@ theme_override_font_sizes/font_size = 8
 text = "50"
 vertical_alignment = 1
 
-[node name="TextureRect" type="Sprite2D" parent="Player/GridContainer/Moedas"]
+[node name="TextureRect" type="Sprite2D" parent="Player/HUD/Moedas"]
 position = Vector2(-5.83332, 9.16668)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("16_1vve2")
 region_enabled = true
 region_rect = Rect2(1, 1, 14, 14)
+
+[node name="Controles" type="GridContainer" parent="Player"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = 17.5
+offset_right = 122.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 150
+columns = 2
+
+[node name="Pular" type="TouchScreenButton" parent="Player/Controles"]
+z_index = 1
+position = Vector2(2.5, -4.16667)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("20_rb8uy")
+shape = SubResource("CircleShape2D_rb8uy")
+action = "pular"
+
+[node name="GridContainer" type="GridContainer" parent="Player/Controles"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="Esquerda" type="TouchScreenButton" parent="Player/Controles/GridContainer"]
+z_index = 1
+position = Vector2(176.667, -2.5)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("21_7wjjj")
+shape = SubResource("CircleShape2D_7wjjj")
+action = "esquerda"
+
+[node name="Direita" type="TouchScreenButton" parent="Player/Controles/GridContainer"]
+z_index = 1
+position = Vector2(217.5, -3.33333)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("22_jqu2d")
+shape = SubResource("CircleShape2D_jqu2d")
+action = "direita"
+
+[node name="Menu" type="Button" parent="Player"]
+offset_left = 104.167
+offset_top = -95.0
+offset_right = 168.167
+offset_bottom = -75.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("20_4vntt")
+theme_override_fonts/font = ExtResource("16_x2afm")
+theme_override_font_sizes/font_size = 16
+text = "Menu"
 
 [node name="Killzone" parent="." instance=ExtResource("7_p7rbk")]
 position = Vector2(0, 243)
@@ -321,3 +387,5 @@ theme_override_font_sizes/font_size = 8
 text = "Colete x moedas!"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[connection signal="pressed" from="Player/Menu" to="." method="_on_menu_pressed"]

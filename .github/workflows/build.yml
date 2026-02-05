@@ -37,7 +37,7 @@ jobs:
       # Pastas
       - name: Prepare directories
         run: |
-          mkdir -p build/windows build/linux build/web
+          mkdir -p build/windows build/linux build/web build/android
 
       # IMPORTAÇÃO (obrigatória)
       - name: Import assets

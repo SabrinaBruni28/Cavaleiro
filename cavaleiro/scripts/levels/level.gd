@@ -24,6 +24,7 @@ func _process(_delta: float) -> void:
 	if GameManager.moedas == GameManager.max and not ganhou: 
 		GameManager.win()
 		ganhou = true
+		$Player.win = true
 
 func _update_labels() -> void:
 	final.text = "Você coletou " + str(GameManager.moedas) + " moedas!"

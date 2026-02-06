@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://smohhnxn4oaj"]
 
-[ext_resource type="Script" uid="uid://rqhnhc085uy5" path="res://scripts/screens/final_screen.gd" id="1_78w0w"]
+[ext_resource type="Script" uid="uid://bpteiksrk0cd1" path="res://scripts/screens/controles_screen.gd" id="1_yyvbq"]
 [ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_yyvbq"]
 [ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_6pagn"]
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_qqevm"]
@@ -78,7 +78,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_78w0w")
+script = ExtResource("1_yyvbq")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 0

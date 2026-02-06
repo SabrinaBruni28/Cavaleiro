@@ -124,11 +124,11 @@ layout_mode = 2
 theme_override_constants/separation = 60
 theme_override_styles/separator = SubResource("StyleBoxEmpty_bqn3h")
 
-[node name="Inicial_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_dlo8h")
 theme_override_font_sizes/font_size = 24
-text = "Menu Inicial"
+text = "Menu"
 
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(128, 422)
@@ -137,5 +137,4 @@ sprite_frames = SubResource("SpriteFrames_qnnn4")
 autoplay = "default"
 frame_progress = 0.614842
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Inicial_button" to="." method="_on_inicial_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Inicial_button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

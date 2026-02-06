@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-enum PlayerState { GROUND, AIR, WATER, DIE }
+enum PlayerState { GROUND, AIR, WATER, DIE, WIN }
 var state: PlayerState = PlayerState.AIR
 
 var died = false
 var nadar = false
+var win = false
 var agua_count = 0
 
 # Valores normais
@@ -20,13 +21,15 @@ const GRAVITY_AGUA = 0.3
 var speed = SPEED_NORMAL
 var jump_velocity = JUMP_NORMAL
 var gravity_scale = GRAVITY_NORMAL
-var direction
+var direction = 1
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 func estados():
-	if died:
+	if win:
+		state = PlayerState.WIN
+	elif died:
 		state = PlayerState.DIE
 	elif is_on_floor():
 		state = PlayerState.GROUND
@@ -56,7 +59,11 @@ func gravidade(delta):
 		PlayerState.DIE:
 			velocity = Vector2.ZERO
 
+		PlayerState.WIN:
+			velocity = Vector2.ZERO
+
 func movimento():
+	if not pode_interagir(): return
 	direction = Input.get_axis("esquerda", "direita")
 
 	if direction:
@@ -85,6 +92,9 @@ func animacao():
 
 		PlayerState.AIR:
 			play_anim("jump")
+		
+		PlayerState.WIN:
+			play_anim("win")
 
 func _physics_process(delta: float) -> void:
 	estados()
@@ -96,12 +106,14 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	died = true
-	collision.queue_free()
 	AudioManager.dying_sound.play()
 
 func play_anim(name: String) -> void:
 	if animated_sprite.animation != name:
 		animated_sprite.play(name)
+
+func pode_interagir() -> bool:
+	return state != PlayerState.DIE and state != PlayerState.WIN
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("agua"):

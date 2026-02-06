@@ -4,7 +4,7 @@ extends Area2D
 var died = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if died: return
+	if died or not body.pode_interagir(): return
 	Engine.time_scale = 0.5
 	body.die()
 	timer.start()

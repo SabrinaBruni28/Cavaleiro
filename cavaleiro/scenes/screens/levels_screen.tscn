@@ -178,6 +178,7 @@ expand_mode = 2
 
 [node name="Menu" type="Button" parent="."]
 custom_minimum_size = Vector2(120, 45)
+layout_mode = 0
 offset_left = 26.0
 offset_top = 22.0
 offset_right = 90.0

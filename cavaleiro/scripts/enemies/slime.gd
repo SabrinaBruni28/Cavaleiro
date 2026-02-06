@@ -46,6 +46,6 @@ func die():
 	AudioManager.morte_inimigo_sound.play()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if died: return
+	if died or not body.pode_interagir(): return
 	body.pular()
 	die()

@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://xn5efy7ijdsw"]
+
+[ext_resource type="Script" uid="uid://bccwc16vaw58n" path="res://scripts/components/caixa.gd" id="1_6lnj4"]
+[ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_bhiho"]
+[ext_resource type="PackedScene" uid="uid://d3coteb2856id" path="res://scenes/components/coin.tscn" id="3_8hua0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lnj4"]
+atlas = ExtResource("2_bhiho")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhiho"]
+atlas = ExtResource("2_bhiho")
+region = Rect2(112, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtaof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lnj4")
+}],
+"loop": true,
+"name": &"bateu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhiho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cumj"]
+size = Vector2(16, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lc5m"]
+size = Vector2(9, 0.75)
+
+[sub_resource type="Animation" id="Animation_0cumj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coin:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rtaof"]
+resource_name = "colete"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coin:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ni10"]
+_data = {
+&"RESET": SubResource("Animation_0cumj"),
+&"colete": SubResource("Animation_rtaof")
+}
+
+[node name="CaixaCinza" type="AnimatableBody2D"]
+script = ExtResource("1_6lnj4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rtaof")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_0cumj")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(2, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -9)
+shape = SubResource("RectangleShape2D_2lc5m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6ni10")
+}
+
+[node name="Coin" parent="." instance=ExtResource("3_8hua0")]
+visible = false
+script = null
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

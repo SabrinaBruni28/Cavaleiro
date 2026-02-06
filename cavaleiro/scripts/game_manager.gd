@@ -4,7 +4,7 @@ var score: int = 0
 var moedas: int = 0
 var max: int = 0
 var level: int = 1
-var max_level: int = 3
+var max_level: int = 4
 var level_disponível: int = 1
 var mobile: bool
 

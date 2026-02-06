@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=37 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
@@ -18,7 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://bmie0107hms02" path="res://scenes/plataformas/plataform_marrom.tscn" id="8_morta"]
 [ext_resource type="PackedScene" uid="uid://s2qqxcyf3cuq" path="res://scenes/plataformas/plataform_marrom_pequena.tscn" id="9_p7rbk"]
 [ext_resource type="PackedScene" uid="uid://p0kp2n8xa0oj" path="res://scenes/caixas/caixa_marrom.tscn" id="10_morta"]
+[ext_resource type="PackedScene" uid="uid://1cob8cd0tt4a" path="res://scenes/plataformas/plataform_azul_pequena.tscn" id="10_ug1pp"]
+[ext_resource type="PackedScene" uid="uid://xn5efy7ijdsw" path="res://scenes/caixas/caixa_cinza.tscn" id="11_osutr"]
 [ext_resource type="PackedScene" uid="uid://c1obh82wet812" path="res://scenes/caixas/caixa_branca.tscn" id="11_p7rbk"]
+[ext_resource type="PackedScene" uid="uid://dlx112jpccuch" path="res://scenes/components/gelo.tscn" id="12_bc8pi"]
+[ext_resource type="PackedScene" uid="uid://bucl48qeh4mnp" path="res://scenes/plataformas/plataform_azul.tscn" id="12_osutr"]
 [ext_resource type="Texture2D" uid="uid://dh2nf4jrpqxsl" path="res://assets/sprites/coin.png" id="16_1vve2"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="16_x2afm"]
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="20_4vntt"]
@@ -198,6 +202,7 @@ texture = ExtResource("2_ynct0")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ynct0"]
 scenes/1/scene = ExtResource("3_w06h8")
 scenes/2/scene = ExtResource("4_dq8h5")
+scenes/3/scene = ExtResource("12_osutr")
 scenes/4/scene = ExtResource("5_imdmy")
 scenes/5/scene = ExtResource("7_imdmy")
 scenes/6/scene = ExtResource("8_morta")
@@ -210,6 +215,9 @@ scenes/12/scene = ExtResource("6_bbft6")
 scenes/13/scene = ExtResource("7_ioey5")
 scenes/14/scene = ExtResource("8_ioey5")
 scenes/15/scene = ExtResource("5_ynct0")
+scenes/16/scene = ExtResource("10_ug1pp")
+scenes/17/scene = ExtResource("11_osutr")
+scenes/18/scene = ExtResource("12_bc8pi")
 
 [sub_resource type="TileSet" id="TileSet_w06h8"]
 physics_layer_0/collision_layer = 1

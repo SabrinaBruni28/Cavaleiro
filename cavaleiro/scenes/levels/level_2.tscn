@@ -28,6 +28,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 [node name="Moedas" parent="Player/HUD" index="2"]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
+[node name="Esquerda" parent="Player/Controles/GridContainer" index="0"]
+position = Vector2(-2.5, -3.33333)
+
+[node name="Direita" parent="Player/Controles/GridContainer" index="1"]
+position = Vector2(40.8333, -3.33333)
+
+[node name="Pular" parent="Player/Controles" index="1"]
+position = Vector2(217.5, -2.5)
+
 [node name="Killzone" parent="." index="2"]
 position = Vector2(5, 386)
 

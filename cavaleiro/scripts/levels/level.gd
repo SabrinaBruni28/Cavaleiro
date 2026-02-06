@@ -8,16 +8,16 @@ extends Node2D
 var ganhou = false
 
 func _ready() -> void:
+	$Player/Controles/GridContainer/Esquerda.visible = GameManager.mobile
+	$Player/Controles/GridContainer/Direita.visible = GameManager.mobile
+	$Player/Controles/Pular.visible = GameManager.mobile
+
 	await get_tree().process_frame
 	
 	var total = get_tree().get_nodes_in_group("coin").size()
 	GameManager.reset_level(total)
 	objetivo.text = "Colete " + str(GameManager.max) + " moedas!"
 	level.text = "Nível " + str(GameManager.level)
-
-	$Player/Controles/GridContainer/Esquerda.visible = GameManager.mobile
-	$Player/Controles/GridContainer/Direita.visible = GameManager.mobile
-	$Player/Controles/Pular.visible = GameManager.mobile
 
 func _process(_delta: float) -> void:
 	_update_labels()

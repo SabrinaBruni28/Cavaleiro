@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://h5bwiytxrxml"]
+[gd_scene load_steps=22 format=3 uid="uid://h5bwiytxrxml"]
 
 [ext_resource type="Script" uid="uid://cxq5yv1jynsx" path="res://scripts/screens/sound_screen.gd" id="1_e87fd"]
 [ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_l0i20"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btlb6p6ukftit" path="res://scenes/components/slider.tscn" id="4_wfgd4"]
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_wsaqj"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="6_3yla6"]
+[ext_resource type="Texture2D" uid="uid://bi0ph5y72rtjk" path="res://assets/sprites/Cat Sprite Sheet.png" id="7_l0i20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
 atlas = ExtResource("6_3yla6")
@@ -69,6 +70,42 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8m8d"]
+atlas = ExtResource("7_l0i20")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsaqj"]
+atlas = ExtResource("7_l0i20")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pov7o"]
+atlas = ExtResource("7_l0i20")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yla6"]
+atlas = ExtResource("7_l0i20")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wj14e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8m8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsaqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pov7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yla6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="SoundScreen" type="Control"]
@@ -150,5 +187,13 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_qnnn4")
 autoplay = "default"
 frame_progress = 0.614842
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(1020, 420)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_wj14e")
+autoplay = "default"
+frame_progress = 0.678323
+flip_h = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

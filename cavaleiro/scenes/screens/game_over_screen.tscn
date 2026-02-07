@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn1a8dyn6a441"]
+[gd_scene load_steps=22 format=3 uid="uid://cn1a8dyn6a441"]
 
 [ext_resource type="Script" uid="uid://bvxs3x6fy7yw8" path="res://scripts/screens/game_over_screen.gd" id="1_t6gfk"]
 [ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_caqlj"]
 [ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_cswdd"]
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_57lmi"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_lbpf0"]
+[ext_resource type="Texture2D" uid="uid://bi0ph5y72rtjk" path="res://assets/sprites/Cat Sprite Sheet.png" id="6_caqlj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyfkl"]
 
@@ -42,6 +43,70 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cswdd"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lmi"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbpf0"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jckm"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru2t3"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(128, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry5du"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(160, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8drj"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(192, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m3xd"]
+atlas = ExtResource("6_caqlj")
+region = Rect2(224, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afv1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cswdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbpf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jckm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru2t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry5du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8drj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m3xd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="GameOverScreen" type="Control"]
@@ -112,6 +177,14 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_8i476")
 autoplay = "default"
 frame_progress = 0.945078
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(1030, 410)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_afv1n")
+autoplay = "default"
+frame_progress = 0.00276463
+flip_h = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Again_button" to="." method="_on_again_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

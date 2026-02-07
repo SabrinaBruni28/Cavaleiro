@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dc3woj6l5aq82"]
+[gd_scene load_steps=34 format=3 uid="uid://dc3woj6l5aq82"]
 
 [ext_resource type="Script" uid="uid://oideokmtek2m" path="res://scripts/screens/levels_screen.gd" id="1_q17xn"]
 [ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_4plrj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_4e537"]
 [ext_resource type="FontFile" uid="uid://dfsodyg8fh8i3" path="res://assets/fonts/PixelOperator8.ttf" id="5_4plrj"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_ofqpg"]
+[ext_resource type="Texture2D" uid="uid://bi0ph5y72rtjk" path="res://assets/sprites/Cat Sprite Sheet.png" id="7_dot13"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q17xn"]
 atlas = ExtResource("5_ofqpg")
@@ -160,6 +161,42 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwjjh"]
+atlas = ExtResource("7_dot13")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lhol"]
+atlas = ExtResource("7_dot13")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01nht"]
+atlas = ExtResource("7_dot13")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4wox"]
+atlas = ExtResource("7_dot13")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sansh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwjjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01nht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4wox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="LevelsScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -235,5 +272,13 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_e54dn")
 autoplay = "default"
 frame_progress = 0.456075
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(1113, 425)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_sansh")
+autoplay = "default"
+frame_progress = 0.52028
+flip_h = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

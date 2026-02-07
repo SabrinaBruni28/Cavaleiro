@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://smohhnxn4oaj"]
+[gd_scene load_steps=24 format=3 uid="uid://smohhnxn4oaj"]
 
 [ext_resource type="Script" uid="uid://bpteiksrk0cd1" path="res://scripts/screens/controles_screen.gd" id="1_yyvbq"]
 [ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_yyvbq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_qqevm"]
 [ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="5_auu3p"]
 [ext_resource type="PackedScene" uid="uid://bx4xjmh7sxu8f" path="res://scenes/components/button.tscn" id="5_yyvbq"]
+[ext_resource type="Texture2D" uid="uid://bi0ph5y72rtjk" path="res://assets/sprites/Cat Sprite Sheet.png" id="7_6pagn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
 atlas = ExtResource("5_auu3p")
@@ -69,6 +70,56 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqevm"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auu3p"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ajgi"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33bla"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by1sv"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wo2c"]
+atlas = ExtResource("7_6pagn")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hql33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqevm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auu3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ajgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33bla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by1sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wo2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="ControlesScreen" type="Control"]
@@ -161,6 +212,14 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_qnnn4")
 autoplay = "default"
 frame_progress = 0.614842
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(1124, 421)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hql33")
+autoplay = "default"
+frame_progress = 0.276253
+flip_h = true
 
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

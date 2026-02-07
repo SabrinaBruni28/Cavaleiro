@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=3 uid="uid://h5bwiytxrxml"]
+
+[ext_resource type="Script" uid="uid://cxq5yv1jynsx" path="res://scripts/screens/sound_screen.gd" id="1_e87fd"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_l0i20"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_c8m8d"]
+[ext_resource type="PackedScene" uid="uid://btlb6p6ukftit" path="res://scenes/components/slider.tscn" id="4_wfgd4"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_wsaqj"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="6_3yla6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrm4"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1kg"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqn3h"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnnn4"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doie2"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ob7"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8vhx"]
+atlas = ExtResource("6_3yla6")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnnn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e41g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqn3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnnn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doie2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ob7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8vhx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="SoundScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e87fd")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_l0i20")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 228.0
+offset_top = 20.0
+offset_right = 918.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_c8m8d")
+theme_override_font_sizes/font_size = 80
+text = "Sons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 2
+offset_left = 466.0
+offset_top = 484.0
+offset_right = 695.0
+offset_bottom = 512.0
+theme = ExtResource("4_wsaqj")
+theme_override_font_sizes/font_size = 24
+text = "Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -125.0
+offset_right = 250.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Musica" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_wfgd4")]
+layout_mode = 2
+bus_name = "Music"
+label_nome = "Música"
+largura = 550.0
+
+[node name="Som" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_wfgd4")]
+layout_mode = 2
+bus_name = "SFX"
+label_nome = "Sons"
+largura = 550.0
+
+[node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
+position = Vector2(128, 422)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qnnn4")
+autoplay = "default"
+frame_progress = 0.614842
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

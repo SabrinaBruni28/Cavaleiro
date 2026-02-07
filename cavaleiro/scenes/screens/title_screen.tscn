@@ -94,6 +94,12 @@ theme = ExtResource("4_0virr")
 theme_override_font_sizes/font_size = 24
 text = "Controles"
 
+[node name="Som" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0virr")
+theme_override_font_sizes/font_size = 24
+text = "Sons"
+
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(172, 422)
 scale = Vector2(5, 5)
@@ -103,3 +109,4 @@ frame_progress = 0.197261
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Som" to="." method="_on_som_pressed"]

@@ -72,7 +72,8 @@ func gravidade(delta):
 			velocity = Vector2.ZERO
 
 		PlayerState.WIN:
-			velocity = Vector2.ZERO
+			velocity.y += get_gravity().y * gravity_scale * delta
+			velocity.x = 0
 
 func movimento(delta):
 	if not pode_interagir():

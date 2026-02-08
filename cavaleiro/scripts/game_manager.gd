@@ -11,6 +11,7 @@ var mobile: bool
 func _ready() -> void:
 	mobile = OS.has_feature("mobile")
 	SaveManager.load_game()
+	level_disponível = 4
 
 func inicia_level():
 	get_tree().change_scene_to_file("res://scenes/levels/level_" + str(level) + ".tscn")

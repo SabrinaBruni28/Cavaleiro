@@ -224,14 +224,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_40ga3")
 sources/1 = SubResource("TileSetScenesCollectionSource_ynct0")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rb8uy"]
+radius = 358.02
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_7wjjj"]
 radius = 351.33
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqu2d"]
 radius = 351.33
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rb8uy"]
-radius = 358.02
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -324,34 +324,29 @@ grow_vertical = 2
 theme_override_constants/h_separation = 150
 columns = 2
 
-[node name="GridContainer" type="GridContainer" parent="Player/Controles"]
-layout_mode = 2
-theme_override_constants/h_separation = 25
-columns = 2
-
-[node name="Esquerda" type="TouchScreenButton" parent="Player/Controles/GridContainer"]
+[node name="Pular" type="TouchScreenButton" parent="Player/Controles"]
 z_index = 1
-position = Vector2(-2.5, -3.33333)
+position = Vector2(-5, -3.33337)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("20_rb8uy")
+shape = SubResource("CircleShape2D_rb8uy")
+action = "pular"
+
+[node name="Esquerda" type="TouchScreenButton" parent="Player/Controles"]
+z_index = 1
+position = Vector2(179.167, -2.5)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("21_7wjjj")
 shape = SubResource("CircleShape2D_7wjjj")
 action = "esquerda"
 
-[node name="Direita" type="TouchScreenButton" parent="Player/Controles/GridContainer"]
+[node name="Direita" type="TouchScreenButton" parent="Player/Controles"]
 z_index = 1
-position = Vector2(40.8333, -3.33333)
+position = Vector2(219.167, -2.5)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("22_jqu2d")
 shape = SubResource("CircleShape2D_jqu2d")
 action = "direita"
-
-[node name="Pular" type="TouchScreenButton" parent="Player/Controles"]
-z_index = 1
-position = Vector2(217.5, -2.5)
-scale = Vector2(0.05, 0.05)
-texture_normal = ExtResource("20_rb8uy")
-shape = SubResource("CircleShape2D_rb8uy")
-action = "pular"
 
 [node name="Menu" type="Button" parent="Player"]
 offset_left = 104.167

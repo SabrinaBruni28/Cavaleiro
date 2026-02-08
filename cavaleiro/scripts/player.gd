@@ -43,10 +43,10 @@ func estados():
 		state = PlayerState.WIN
 	elif died:
 		state = PlayerState.DIE
-	elif nadar:
-		state = PlayerState.WATER
 	elif is_on_floor():
 		state = PlayerState.GROUND
+	elif nadar:
+		state = PlayerState.WATER
 	else:
 		state = PlayerState.AIR
 

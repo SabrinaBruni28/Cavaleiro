@@ -1,6 +1,6 @@
 extends TouchScreenButton
 
-const LIMITE_MIN = Vector2(-136, -103)
+const LIMITE_MIN = Vector2(-140, -110)
 const LIMITE_MAX = Vector2(130, 50)
 
 func _ready():
@@ -11,7 +11,6 @@ func _ready():
 		return
 
 	var pos_normalizada: Vector2 = cfg.get_value("buttons", name)
-	print(pos_normalizada)
 
 	position = Vector2(
 		lerp(LIMITE_MIN.x, LIMITE_MAX.x, pos_normalizada.x),

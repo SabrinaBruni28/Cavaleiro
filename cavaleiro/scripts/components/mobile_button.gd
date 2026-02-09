@@ -1,7 +1,7 @@
 extends TouchScreenButton
 
-const LIMITE_MIN = Vector2(-140, -110)
-const LIMITE_MAX = Vector2(130, 50)
+const LIMITE_MIN = Vector2(-136, -104)
+const LIMITE_MAX = Vector2(132, 48)
 
 func _ready():
 	var cfg := ConfigFile.new()

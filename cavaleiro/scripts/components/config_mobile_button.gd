@@ -5,10 +5,13 @@ extends TextureButton
 var dragging := false
 var touch_index := -1
 var parent
+var posicao_padrao = Vector2.ZERO
 
 func _ready() -> void:
 	parent = get_parent()
+	posicao_padrao = position
 	carregar_posicao()
+	salvar_posicao()
 
 func _gui_input(event):
 	if not pode_mover:
@@ -29,6 +32,14 @@ func _gui_input(event):
 	elif event is InputEventScreenDrag:
 		if dragging and event.index == touch_index:
 			position += event.relative
+			
+			# limita dentro do parent
+			var tamanho_parent = parent.size
+			var tamanho_botao = size * scale  # tamanho do TextureButton
+
+			position.x = clamp(position.x, 0, tamanho_parent.x - tamanho_botao.x)
+			position.y = clamp(position.y, 0, tamanho_parent.y - tamanho_botao.y)
+
 			accept_event()
 
 func salvar_posicao():

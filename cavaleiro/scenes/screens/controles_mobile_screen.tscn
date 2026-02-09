@@ -182,6 +182,16 @@ theme = ExtResource("4_4l37l")
 theme_override_font_sizes/font_size = 24
 text = "Voltar"
 
+[node name="Reset" type="Button" parent="."]
+layout_mode = 2
+offset_left = 984.0
+offset_top = 595.0
+offset_right = 1134.0
+offset_bottom = 623.0
+theme = ExtResource("4_4l37l")
+theme_override_font_sizes/font_size = 24
+text = "Resetar"
+
 [node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
 position = Vector2(128, 422)
 scale = Vector2(5, 5)
@@ -218,11 +228,11 @@ offset_left = 665.0
 offset_top = 310.0
 offset_right = 965.0
 offset_bottom = 610.0
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("5_s35cl")
 texture_pressed = ExtResource("6_7jgrg")
 ignore_texture_size = true
-stretch_mode = 3
+stretch_mode = 4
 script = ExtResource("11_d4cwd")
 
 [node name="Esquerda" type="TextureButton" parent="Controles"]
@@ -232,11 +242,11 @@ offset_left = 31.0
 offset_top = 303.0
 offset_right = 331.0
 offset_bottom = 603.0
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("7_ax5kv")
 texture_pressed = ExtResource("8_oj6eh")
 ignore_texture_size = true
-stretch_mode = 3
+stretch_mode = 4
 script = ExtResource("11_d4cwd")
 
 [node name="Direita" type="TextureButton" parent="Controles"]
@@ -246,11 +256,12 @@ offset_left = 136.0
 offset_top = 304.0
 offset_right = 436.0
 offset_bottom = 604.0
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("9_mpjqy")
 texture_pressed = ExtResource("10_7hvuv")
 ignore_texture_size = true
-stretch_mode = 3
+stretch_mode = 4
 script = ExtResource("11_d4cwd")
 
 [connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

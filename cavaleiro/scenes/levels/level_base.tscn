@@ -229,13 +229,13 @@ sources/0 = SubResource("TileSetAtlasSource_40ga3")
 sources/1 = SubResource("TileSetScenesCollectionSource_ynct0")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb8uy"]
-radius = 442.8
+radius = 350.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7wjjj"]
-radius = 442.64
+radius = 350.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqu2d"]
-radius = 436.12
+radius = 350.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -328,7 +328,7 @@ text = "Menu"
 
 [node name="Pular" type="TouchScreenButton" parent="Player"]
 z_index = 1
-position = Vector2(100, 14.1666)
+position = Vector2(100, 10)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("20_rb8uy")
 texture_pressed = ExtResource("25_td2jx")
@@ -338,7 +338,7 @@ script = ExtResource("26_41y26")
 
 [node name="Esquerda" type="TouchScreenButton" parent="Player"]
 z_index = 1
-position = Vector2(-123.333, 14.1667)
+position = Vector2(-124.167, 9.16666)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("21_7wjjj")
 texture_pressed = ExtResource("27_41y26")
@@ -348,7 +348,7 @@ script = ExtResource("26_41y26")
 
 [node name="Direita" type="TouchScreenButton" parent="Player"]
 z_index = 1
-position = Vector2(-77.5, 14.1667)
+position = Vector2(-73.3333, 9.16666)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("22_jqu2d")
 texture_pressed = ExtResource("29_y1kfd")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bn2fr43k51lbw"]
+[gd_scene load_steps=40 format=3 uid="uid://bn2fr43k51lbw"]
 
 [ext_resource type="Script" uid="uid://b3c2b08f0lwhk" path="res://scripts/levels/level.gd" id="1_40ga3"]
 [ext_resource type="Texture2D" uid="uid://bwh76waw407ei" path="res://assets/sprites/world_tileset.png" id="2_ynct0"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://bupjxfeymiqwg" path="res://assets/sprites/botao_cima.png" id="20_rb8uy"]
 [ext_resource type="Texture2D" uid="uid://dk3stx51s4dkx" path="res://assets/sprites/botao_esquerda.png" id="21_7wjjj"]
 [ext_resource type="Texture2D" uid="uid://djia1grds7joq" path="res://assets/sprites/botao_direita.png" id="22_jqu2d"]
+[ext_resource type="Texture2D" uid="uid://0v4sqjpe66n5" path="res://assets/sprites/botao_cima_pressed.png" id="25_td2jx"]
+[ext_resource type="Texture2D" uid="uid://ctopvb8tmql3i" path="res://assets/sprites/botao_esquerda_pressed.png" id="27_41y26"]
+[ext_resource type="Texture2D" uid="uid://bp4wx7664wou2" path="res://assets/sprites/botao_direita_pressed.png" id="29_y1kfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40ga3"]
 texture = ExtResource("2_ynct0")
@@ -225,13 +228,13 @@ sources/0 = SubResource("TileSetAtlasSource_40ga3")
 sources/1 = SubResource("TileSetScenesCollectionSource_ynct0")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb8uy"]
-radius = 358.02
+radius = 442.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7wjjj"]
-radius = 351.33
+radius = 442.64
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqu2d"]
-radius = 351.33
+radius = 436.12
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
@@ -326,25 +329,28 @@ columns = 2
 
 [node name="Pular" type="TouchScreenButton" parent="Player/Controles"]
 z_index = 1
-position = Vector2(-5, -3.33337)
+position = Vector2(220, -3.33337)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("20_rb8uy")
+texture_pressed = ExtResource("25_td2jx")
 shape = SubResource("CircleShape2D_rb8uy")
 action = "pular"
 
 [node name="Esquerda" type="TouchScreenButton" parent="Player/Controles"]
 z_index = 1
-position = Vector2(179.167, -2.5)
+position = Vector2(-3.33333, -3.33333)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("21_7wjjj")
+texture_pressed = ExtResource("27_41y26")
 shape = SubResource("CircleShape2D_7wjjj")
 action = "esquerda"
 
 [node name="Direita" type="TouchScreenButton" parent="Player/Controles"]
 z_index = 1
-position = Vector2(219.167, -2.5)
+position = Vector2(42.5, -3.33333)
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("22_jqu2d")
+texture_pressed = ExtResource("29_y1kfd")
 shape = SubResource("CircleShape2D_jqu2d")
 action = "direita"
 

@@ -1,0 +1,236 @@
+[gd_scene load_steps=30 format=3 uid="uid://smohhnxn4oaj"]
+
+[ext_resource type="Script" uid="uid://bb2gy6ayek432" path="res://scripts/screens/controles_mobile_screen.gd" id="1_s35cl"]
+[ext_resource type="Texture2D" uid="uid://dqscs0gm68qko" path="res://assets/sprites/fundo.jpg" id="2_khmol"]
+[ext_resource type="FontFile" uid="uid://e5pk3fs5adgv" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_fkqnd"]
+[ext_resource type="Theme" uid="uid://bf26rguqthypl" path="res://themes/button_theme.tres" id="4_4l37l"]
+[ext_resource type="Texture2D" uid="uid://bupjxfeymiqwg" path="res://assets/sprites/botao_cima.png" id="5_s35cl"]
+[ext_resource type="Texture2D" uid="uid://0v4sqjpe66n5" path="res://assets/sprites/botao_cima_pressed.png" id="6_7jgrg"]
+[ext_resource type="Texture2D" uid="uid://hsxgvfon0uo6" path="res://assets/sprites/knight.png" id="6_fpjhk"]
+[ext_resource type="Texture2D" uid="uid://dk3stx51s4dkx" path="res://assets/sprites/botao_esquerda.png" id="7_ax5kv"]
+[ext_resource type="Texture2D" uid="uid://bi0ph5y72rtjk" path="res://assets/sprites/Cat Sprite Sheet.png" id="7_s35cl"]
+[ext_resource type="Texture2D" uid="uid://ctopvb8tmql3i" path="res://assets/sprites/botao_esquerda_pressed.png" id="8_oj6eh"]
+[ext_resource type="Texture2D" uid="uid://djia1grds7joq" path="res://assets/sprites/botao_direita.png" id="9_mpjqy"]
+[ext_resource type="Texture2D" uid="uid://bp4wx7664wou2" path="res://assets/sprites/botao_direita_pressed.png" id="10_7hvuv"]
+[ext_resource type="Script" uid="uid://dentje5d5jy40" path="res://scripts/components/config_mobile_button.gd" id="11_d4cwd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e41g7"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrm4"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1kg"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqn3h"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnnn4"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doie2"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ob7"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8vhx"]
+atlas = ExtResource("6_fpjhk")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnnn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e41g7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqn3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnnn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doie2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ob7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8vhx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqevm"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auu3p"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ajgi"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33bla"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by1sv"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wo2c"]
+atlas = ExtResource("7_s35cl")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hql33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqevm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auu3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ajgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33bla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by1sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wo2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ControlesMobileScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s35cl")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_khmol")
+expand_mode = 2
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 2
+offset_left = 27.0
+offset_top = 81.0
+offset_right = 1127.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fkqnd")
+theme_override_font_sizes/font_size = 64
+text = "Controles Mobile"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texto" type="Label" parent="."]
+layout_mode = 2
+offset_left = 27.0
+offset_top = 239.0
+offset_right = 1127.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fkqnd")
+theme_override_font_sizes/font_size = 16
+text = "Arraste e ajuste a posição dos botões como preferir..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 21.0
+offset_right = 164.0
+offset_bottom = 49.0
+theme = ExtResource("4_4l37l")
+theme_override_font_sizes/font_size = 24
+text = "Voltar"
+
+[node name="Pular" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 506.0
+offset_right = 1005.0
+offset_bottom = 506.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("5_s35cl")
+texture_pressed = ExtResource("6_7jgrg")
+script = ExtResource("11_d4cwd")
+
+[node name="Esquerda" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 51.0
+offset_top = 503.0
+offset_right = 51.0
+offset_bottom = 503.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("7_ax5kv")
+texture_pressed = ExtResource("8_oj6eh")
+script = ExtResource("11_d4cwd")
+
+[node name="Direita" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 245.0
+offset_top = 504.0
+offset_right = 245.0
+offset_bottom = 504.0
+scale = Vector2(0.22, 0.22)
+texture_normal = ExtResource("9_mpjqy")
+texture_pressed = ExtResource("10_7hvuv")
+script = ExtResource("11_d4cwd")
+
+[node name="Cavaleiro" type="AnimatedSprite2D" parent="."]
+position = Vector2(128, 422)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_qnnn4")
+autoplay = "default"
+frame_progress = 0.614842
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(1124, 421)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hql33")
+autoplay = "default"
+frame_progress = 0.276253
+flip_h = true
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

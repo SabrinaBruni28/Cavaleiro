@@ -8,9 +8,9 @@ extends Node2D
 var ganhou = false
 
 func _ready() -> void:
-	$Player/Controles/Esquerda.visible = GameManager.mobile
-	$Player/Controles/Direita.visible = GameManager.mobile
-	$Player/Controles/Pular.visible = GameManager.mobile
+	$Player/Esquerda.visible = GameManager.mobile
+	$Player/Direita.visible = GameManager.mobile
+	$Player/Pular.visible = GameManager.mobile
 
 	await get_tree().process_frame
 	

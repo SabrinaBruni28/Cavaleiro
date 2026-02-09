@@ -10,3 +10,6 @@ func _on_check_button_toggled(button_pressed: bool) -> void:
 
 func _on_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/screens/title_screen.tscn")
+
+func _on_mobile_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/screens/controles_mobile_screen.tscn")
